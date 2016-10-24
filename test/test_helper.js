@@ -1,18 +1,18 @@
-import jsdom from 'jsdom';
-import jquery from 'jquery';
-import TestUtils from 'react-addons-test-utils';
-import ReactDOM from 'react-dom';
-import {expect} from 'chai';
+import _$ from 'jquery';
 import React from 'react';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import reducers from '../src/reducers';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import jsdom from 'jsdom';
+import chai, { expect } from 'chai';
 import chaiJquery from 'chai-jquery';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from '../src/reducers';
 
 //set up testing environment to run like a browser in the command line
 global.document = jsdom.jsdom('<!doctype html><html><body></body></html>') //create fake document
 global.window = global.document.defaultView;
-const $ = jquery(global.window); //jquery instance
+const $ = _$(window); //jquery instance
 
 //build 'renderComponent' helper that should render a given react element
 function renderComponent(ComponentClass,props,state) {
